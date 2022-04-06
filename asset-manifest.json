@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/djustice23.com/static/css/main.e6064ea0.chunk.css",
-    "main.js": "/djustice23.com/static/js/main.466039f7.chunk.js",
-    "main.js.map": "/djustice23.com/static/js/main.466039f7.chunk.js.map",
-    "runtime-main.js": "/djustice23.com/static/js/runtime-main.62e39cb7.js",
-    "runtime-main.js.map": "/djustice23.com/static/js/runtime-main.62e39cb7.js.map",
+    "main.js": "/djustice23.com/static/js/main.6fdbeed7.chunk.js",
+    "main.js.map": "/djustice23.com/static/js/main.6fdbeed7.chunk.js.map",
+    "runtime-main.js": "/djustice23.com/static/js/runtime-main.17d45e23.js",
+    "runtime-main.js.map": "/djustice23.com/static/js/runtime-main.17d45e23.js.map",
     "static/js/2.c543f7d9.chunk.js": "/djustice23.com/static/js/2.c543f7d9.chunk.js",
     "static/js/2.c543f7d9.chunk.js.map": "/djustice23.com/static/js/2.c543f7d9.chunk.js.map",
     "static/js/3.de951c56.chunk.js": "/djustice23.com/static/js/3.de951c56.chunk.js",
@@ -15,27 +15,27 @@
     "static/js/5.aced7fb4.chunk.js.map": "/djustice23.com/static/js/5.aced7fb4.chunk.js.map",
     "static/js/6.edbcabcf.chunk.js": "/djustice23.com/static/js/6.edbcabcf.chunk.js",
     "static/js/6.edbcabcf.chunk.js.map": "/djustice23.com/static/js/6.edbcabcf.chunk.js.map",
-    "static/js/7.0b2738bc.chunk.js": "/djustice23.com/static/js/7.0b2738bc.chunk.js",
-    "static/js/7.0b2738bc.chunk.js.map": "/djustice23.com/static/js/7.0b2738bc.chunk.js.map",
-    "static/js/8.f82229d0.chunk.js": "/djustice23.com/static/js/8.f82229d0.chunk.js",
-    "static/js/8.f82229d0.chunk.js.map": "/djustice23.com/static/js/8.f82229d0.chunk.js.map",
+    "static/js/7.b8e3abf8.chunk.js": "/djustice23.com/static/js/7.b8e3abf8.chunk.js",
+    "static/js/7.b8e3abf8.chunk.js.map": "/djustice23.com/static/js/7.b8e3abf8.chunk.js.map",
+    "static/js/8.6c9bf181.chunk.js": "/djustice23.com/static/js/8.6c9bf181.chunk.js",
+    "static/js/8.6c9bf181.chunk.js.map": "/djustice23.com/static/js/8.6c9bf181.chunk.js.map",
     "static/js/9.3e013401.chunk.js": "/djustice23.com/static/js/9.3e013401.chunk.js",
     "static/js/9.3e013401.chunk.js.map": "/djustice23.com/static/js/9.3e013401.chunk.js.map",
     "static/js/10.0f5a91d7.chunk.js": "/djustice23.com/static/js/10.0f5a91d7.chunk.js",
     "static/js/10.0f5a91d7.chunk.js.map": "/djustice23.com/static/js/10.0f5a91d7.chunk.js.map",
     "static/js/11.b16a7cb4.chunk.js": "/djustice23.com/static/js/11.b16a7cb4.chunk.js",
     "static/js/11.b16a7cb4.chunk.js.map": "/djustice23.com/static/js/11.b16a7cb4.chunk.js.map",
-    "static/js/12.3196bcc1.chunk.js": "/djustice23.com/static/js/12.3196bcc1.chunk.js",
-    "static/js/12.3196bcc1.chunk.js.map": "/djustice23.com/static/js/12.3196bcc1.chunk.js.map",
+    "static/js/12.91d5bae3.chunk.js": "/djustice23.com/static/js/12.91d5bae3.chunk.js",
+    "static/js/12.91d5bae3.chunk.js.map": "/djustice23.com/static/js/12.91d5bae3.chunk.js.map",
     "index.html": "/djustice23.com/index.html",
     "static/css/main.e6064ea0.chunk.css.map": "/djustice23.com/static/css/main.e6064ea0.chunk.css.map",
     "static/js/2.c543f7d9.chunk.js.LICENSE.txt": "/djustice23.com/static/js/2.c543f7d9.chunk.js.LICENSE.txt",
     "static/js/3.de951c56.chunk.js.LICENSE.txt": "/djustice23.com/static/js/3.de951c56.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.62e39cb7.js",
+    "static/js/runtime-main.17d45e23.js",
     "static/js/3.de951c56.chunk.js",
     "static/css/main.e6064ea0.chunk.css",
-    "static/js/main.466039f7.chunk.js"
+    "static/js/main.6fdbeed7.chunk.js"
   ]
 }
