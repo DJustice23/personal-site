@@ -32,7 +32,7 @@ const SideBar = () => (
 
     <section id="footer">
       <ContactIcons />
-      <p className="copyright">&copy; David Justice <Link to="/">djustice23.com</Link>.</p>
+      <p className="copyright">&copy; David Justice <Link to="/">DJustice23.com</Link>.</p>
     </section>
   </section>
 );
