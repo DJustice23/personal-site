@@ -19,9 +19,10 @@ const SideBar = () => (
 
     <section className="blurb">
       <h2>About</h2>
-      <p>Hi, I&apos;m David. I like figuring out things.
-        I am a <a href="https://www.appstate.edu/">App State</a> graduate, self-taught coder, and
-        experienced traveler, currently traveling the USA and living and working out of a camper.
+      <p>Hi there, I&apos;m David. I like learning and experiencing new things.
+        I am an <a href="https://www.appstate.edu/">App State</a> graduate, self-taught coder, and
+        enthusiastic adventurer, among many other things.  Currently traveling
+        around the USA and living and working out of a camper named Windy with my dog, Kona.
       </p>
       <ul className="actions">
         <li>
