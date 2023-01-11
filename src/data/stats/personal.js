@@ -27,7 +27,7 @@ const data = [
   {
     key: 'location',
     label: 'Currently located',
-    value: 'California',
+    value: 'Colorado',
   },
 ];
 
