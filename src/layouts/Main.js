@@ -1,26 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
-import Analytics from '../components/Template/Analytics';
-import Navigation from '../components/Template/Navigation';
-import SideBar from '../components/Template/SideBar';
-import ScrollToTop from '../components/Template/ScrollToTop';
+import Analytics from "../components/Template/Analytics";
+import Navigation from "../components/Template/Navigation";
+import SideBar from "../components/Template/SideBar";
+import ScrollToTop from "../components/Template/ScrollToTop";
 
-const Main = (props) => (
+const Main = ({ title, description, children, fullPage }) => (
   <HelmetProvider>
     <Analytics />
     <ScrollToTop />
-    <Helmet titleTemplate="%s | David Justice" defaultTitle="David Justice" defer={false}>
-      {props.title && <title>{props.title}</title>}
-      <meta name="description" content={props.description} />
+    <Helmet
+      titleTemplate="%s | David Justice"
+      defaultTitle="David Justice"
+      defer={false}
+    >
+      {title && <title>{title}</title>}
+      <meta name="description" content={description} />
     </Helmet>
     <div id="wrapper">
       <Navigation />
-      <div id="main">
-        {props.children}
-      </div>
-      {props.fullPage ? null : <SideBar />}
+      <div id="main">{children}</div>
+      {fullPage ? null : <SideBar />}
     </div>
   </HelmetProvider>
 );

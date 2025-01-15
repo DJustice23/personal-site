@@ -1,33 +1,46 @@
 {
-  "extends": "airbnb",
-  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "babelOptions": {
+       "presets": ["@babel/preset-react"]
+    }
+  },
   "env": {
     "browser": true,
     "node": true,
-    "jest": true
+    "jest": true,
+    "es6": true
   },
+  "plugins": ["react", "prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
         "components": ["Link"],
-        "specialLink": ["to", "hrefLeft", "hrefRight"],
+        "specialLink": ["to"],
         "aspects": ["noHref", "invalidHref", "preferButton"]
       }
     ],
-    "jsx-a11y/click-events-have-key-events": 0,
-    "jsx-a11y/href-no-hash": "off",
-    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
     "no-console": [
-      "error",
+      "warn",
       {
-        "allow": ["warn", "error", "info"]
+        "allow": ["warn", "error"]
       }
     ],
-    "no-underscore-dangle": 0,
-    "react/destructuring-assignment": 0,
+    "no-underscore-dangle": "off",
+    "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [
-      2,
+      "error",
       { "namedComponents": "arrow-function" }
     ],
     "react/jsx-filename-extension": [
@@ -36,17 +49,22 @@
         "extensions": [".js", ".jsx"]
       }
     ],
-    "react/jsx-no-useless-fragment": 0,
-    "react/jsx-one-expression-per-line": 0,
-    "react/jsx-props-no-spreading": 0,
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-wrap-multilines": [
-      1,
+      "error",
       {
         "declaration": true,
         "assignment": true,
-        "return": true
+        "return": true,
+        "arrow": true
       }
-    ]
+    ],
+    "quotes": ["error", "double"]
   },
-  "plugins": ["react"]
+  "settings": {
+  "react": {
+    "version": "detect"
+  }
 }
+}
+

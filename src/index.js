@@ -1,19 +1,20 @@
-import React from 'react';
-import { hydrate, render } from 'react-dom';
-import App from './App';
+import React from "react";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import App from "./App";
 
-// See https://reactjs.org/docs/strict-mode.html
 const StrictApp = () => (
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 
-// hydrate is required by react-snap.
+// If the server (or react-snap) has already pre-rendered content in #root,
+// we "hydrate" that content. Otherwise, we do a normal "render".
 if (rootElement.hasChildNodes()) {
-  hydrate(<StrictApp />, rootElement);
+  hydrateRoot(rootElement, <StrictApp />);
 } else {
-  render(<StrictApp />, rootElement);
+  // For normal client rendering in React 18, use createRoot:
+  createRoot(rootElement).render(<StrictApp />);
 }

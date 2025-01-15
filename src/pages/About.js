@@ -1,41 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import raw from 'raw.macro';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import Main from "../layouts/Main";
 
-import Main from '../layouts/Main';
+const LinkRenderer = ({ ...children }) => {
+  <Link {...children} />;
+};
 
-// uses babel to load contents of file
-const markdown = raw('../data/about.md');
+const About = () => {
+  const [markdown, setMarkdown] = useState("");
+  const [wordCount, setWordCount] = useState(0);
 
-const count = markdown.split(/\s+/)
-  .map((s) => s.replace(/\W/g, ''))
-  .filter((s) => s.length).length;
+  useEffect(() => {
+    fetch("/data/about.md")
+      .then((res) => res.text())
+      .then((text) => {
+        setMarkdown(text);
 
-// Make all hrefs react router links
-const LinkRenderer = ({ ...children }) => <Link {...children} />;
+        const count = text
+          .split(/\s+/)
+          .map((s) => s.replace(/\W/g, ""))
+          .filter((s) => s.length).length;
+        setWordCount(count);
+      })
+      .catch((err) => console.error("Error fetching about.md:", err));
+  }, []);
 
-const About = () => (
-  <Main
-    title="About"
-    description="Learn about David Justice"
-  >
-    <article className="post markdown" id="about">
-      <header>
-        <div className="title">
-          <h2 data-testid="heading"><Link to="/about">About Me</Link></h2>
-          <p>(in about {count} words)</p>
-        </div>
-      </header>
-      <ReactMarkdown
-        source={markdown}
-        renderers={{
-          Link: LinkRenderer,
-        }}
-        escapeHtml={false}
-      />
-    </article>
-  </Main>
-);
+  return (
+    <Main title="About" description="Learn about David Justice">
+      <article className="post markdown" id="about">
+        <header>
+          <div className="title">
+            <h2 data-testid="heading">
+              <Link to="/about">About Me</Link>
+            </h2>
+            <p>(in about {wordCount} words)</p>
+          </div>
+        </header>
+        <ReactMarkdown components={{ a: LinkRenderer }}>
+          {markdown}
+        </ReactMarkdown>
+      </article>
+    </Main>
+  );
+};
 
 export default About;

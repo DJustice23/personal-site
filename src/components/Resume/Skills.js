@@ -1,70 +1,76 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import CategoryButton from './Skills/CategoryButton';
-import SkillBar from './Skills/SkillBar';
-
-const handleProps = ({ categories, skills }) => ({
-  buttons: categories.map((cat) => cat.name).reduce((obj, key) => ({
-    ...obj,
-    [key]: false,
-  }), { All: true }),
-  skills,
-});
+import CategoryButton from "./Skills/CategoryButton";
+import SkillBar from "./Skills/SkillBar";
 
 class Skills extends Component {
+  static initializeButtons(categories) {
+    return categories.reduce(
+      (acc, category) => {
+        acc[category.name] = false;
+        return acc;
+      },
+      { All: true },
+    );
+  }
+
   constructor(props) {
     super(props);
-    this.state = handleProps({ categories: props.categories, skills: props.skills });
-  }
-
-  getRows() {
-    // search for true active categories
-    const actCat = Object.keys(this.state.buttons).reduce((cat, key) => (
-      this.state.buttons[key] ? key : cat
-    ), 'All');
-
-    return this.state.skills.sort((a, b) => {
-      let ret = 0;
-      if (a.competency > b.competency) ret = -1;
-      else if (a.competency < b.competency) ret = 1;
-      else if (a.category[0] > b.category[0]) ret = -1;
-      else if (a.category[0] < b.category[0]) ret = 1;
-      else if (a.title > b.title) ret = 1;
-      else if (a.title < b.title) ret = -1;
-      return ret;
-    }).filter((skill) => (actCat === 'All' || skill.category.includes(actCat)))
-      .map((skill) => (
-        <SkillBar
-          categories={this.props.categories}
-          data={skill}
-          key={skill.title}
-        />
-      ));
-  }
-
-  getButtons() {
-    return Object.keys(this.state.buttons).map((key) => (
-      <CategoryButton
-        label={key}
-        key={key}
-        active={this.state.buttons}
-        handleClick={this.handleChildClick}
-      />
-    ));
+    this.state = {
+      buttons: this.initializeButtons(props.categories),
+      skills: props.skills,
+    };
   }
 
   handleChildClick = (label) => {
     this.setState((prevState) => {
-      // Toggle button that was clicked. Turn all other buttons off.
-      const buttons = Object.keys(prevState.buttons).reduce((obj, key) => ({
-        ...obj,
-        [key]: (label === key) && !prevState.buttons[key],
-      }), {});
-      // Turn on 'All' button if other buttons are off
-      buttons.All = !Object.keys(prevState.buttons).some((key) => buttons[key]);
+      const buttons = Object.keys(prevState.buttons).reduce((acc, key) => {
+        acc[key] = label === key ? !prevState.buttons[key] : false;
+        return acc;
+      }, {});
+
+      // Ensure "All" is active if no other button is active
+      buttons.All = !Object.values(buttons).some((active) => active);
+
       return { buttons };
     });
+  };
+
+  getRows() {
+    const { categories } = this.props;
+    const { buttons, skills } = this.state;
+
+    // Find the active category
+    const activeCategory =
+      Object.keys(buttons).find((key) => buttons[key]) || "All";
+
+    return skills
+      .filter(
+        (skill) =>
+          activeCategory === "All" || skill.category.includes(activeCategory),
+      )
+      .sort((a, b) => {
+        if (a.competency !== b.competency) return b.competency - a.competency;
+        if (a.category[0] !== b.category[0])
+          return a.category[0].localeCompare(b.category[0]);
+        return a.title.localeCompare(b.title);
+      })
+      .map((skill) => (
+        <SkillBar categories={categories} data={skill} key={skill.title} />
+      ));
+  }
+
+  getButtons() {
+    const { buttons } = this.state;
+    return Object.keys(buttons).map((key) => (
+      <CategoryButton
+        label={key}
+        key={key}
+        active={buttons[key]}
+        handleClick={this.handleChildClick}
+      />
+    ));
   }
 
   render() {
@@ -73,36 +79,32 @@ class Skills extends Component {
         <div className="link-to" id="skills" />
         <div className="title">
           <h3>Skills</h3>
-          <p>Note: I think these sections are silly, but everyone seems to have one.
-            Here is a *mostly* honest overview of my skills.
+          <p>
+            Note: I think these sections are silly, but everyone seems to have
+            one. Here is a<em> mostly</em> honest overview of my skills.
           </p>
         </div>
-        <div className="skill-button-container">
-          {this.getButtons()}
-        </div>
-        <div className="skill-row-container">
-          {this.getRows()}
-        </div>
+        <div className="skill-button-container">{this.getButtons()}</div>
+        <div className="skill-row-container">{this.getRows()}</div>
       </div>
     );
   }
 }
 
 Skills.propTypes = {
-  skills: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    competency: PropTypes.number,
-    category: PropTypes.arrayOf(PropTypes.string),
-  })),
-  categories: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    color: PropTypes.string,
-  })),
-};
-
-Skills.defaultProps = {
-  skills: [],
-  categories: [],
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      competency: PropTypes.number.isRequired,
+      category: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }),
+  ).isRequired,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 export default Skills;

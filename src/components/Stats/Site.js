@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from "react";
 
-import Table from './Table';
-import initialData from '../../data/stats/site';
+import Table from "./Table";
+import initialData from "../../data/stats/site";
 
 const Stats = () => {
   const [data, setResponseData] = useState(initialData);
@@ -9,7 +9,7 @@ const Stats = () => {
   const fetchData = useCallback(async () => {
     // request must be authenticated if private
     const res = await fetch(
-      'https://api.github.com/repos/djustice23/personal-site',
+      "https://api.github.com/repos/djustice23/personal-site",
     );
     const resData = await res.json();
     setResponseData(
