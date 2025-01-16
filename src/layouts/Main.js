@@ -7,7 +7,9 @@ import Navigation from '../components/Template/Navigation';
 import SideBar from '../components/Template/SideBar';
 import ScrollToTop from '../components/Template/ScrollToTop';
 
-const Main = ({ title, description, children, fullPage }) => (
+const Main = ({
+  title, description, children, fullPage,
+}) => (
   <HelmetProvider>
     <Analytics />
     <ScrollToTop />

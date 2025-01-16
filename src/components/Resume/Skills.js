@@ -11,7 +11,7 @@ class Skills extends Component {
         acc[category.name] = false;
         return acc;
       },
-      { All: true }
+      { All: true },
     );
   }
 
@@ -42,18 +42,15 @@ class Skills extends Component {
     const { buttons, skills } = this.state;
 
     // Find the active category
-    const activeCategory =
-      Object.keys(buttons).find((key) => buttons[key]) || 'All';
+    const activeCategory = Object.keys(buttons).find((key) => buttons[key]) || 'All';
 
     return skills
       .filter(
-        (skill) =>
-          activeCategory === 'All' || skill.category.includes(activeCategory)
+        (skill) => activeCategory === 'All' || skill.category.includes(activeCategory),
       )
       .sort((a, b) => {
         if (a.competency !== b.competency) return b.competency - a.competency;
-        if (a.category[0] !== b.category[0])
-          return a.category[0].localeCompare(b.category[0]);
+        if (a.category[0] !== b.category[0]) return a.category[0].localeCompare(b.category[0]);
         return a.title.localeCompare(b.title);
       })
       .map((skill) => (
@@ -97,13 +94,13 @@ Skills.propTypes = {
       title: PropTypes.string.isRequired,
       competency: PropTypes.number.isRequired,
       category: PropTypes.arrayOf(PropTypes.string).isRequired,
-    })
+    }),
   ).isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       color: PropTypes.string,
-    })
+    }),
   ).isRequired,
 };
 

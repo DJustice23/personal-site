@@ -69,7 +69,7 @@ const EmailLink = () => {
         updateChar(newChar + 1);
       }
     },
-    isActive ? delay : null
+    isActive ? delay : null,
   );
 
   return (
