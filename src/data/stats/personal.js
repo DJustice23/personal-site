@@ -27,7 +27,7 @@ const data = [
   {
     key: 'location',
     label: 'Currently located',
-    value: 'Colorado',
+    value: 'Mills River, NC',
   },
 ];
 
