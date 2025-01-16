@@ -38,7 +38,7 @@ Courses.propTypes = {
       number: PropTypes.string,
       link: PropTypes.string,
       university: PropTypes.string,
-    }),
+    })
   ),
 };
 

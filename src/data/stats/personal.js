@@ -15,7 +15,7 @@ const Age = () => {
       clearInterval(timer);
     };
   }, []);
-  return { age };
+  return <span>{age}</span>;
 };
 
 const data = [
