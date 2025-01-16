@@ -1,11 +1,14 @@
 const config = {
   moduleNameMapper: {
-    '^.+\\.(css|less|scss)$': 'identity-obj-proxy', // Mock CSS modules
-    '^.+\\.md$': 'markdown-to-jsx', // Map Markdown imports to markdown-to-jsx
+    '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+    '^.+\\.md$': 'markdown-to-jsx',
   },
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
+  transformIgnorePatterns: [
+    '/node_modules/(?!(react-markdown|comma-separated-tokens|hast-util-to-jsx-runtime)/)',
+  ],
 };
 
 module.exports = config;
