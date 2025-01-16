@@ -38,18 +38,7 @@ jobs:
       - name: Debug Build Output
         run: ls -la build
 
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
-
-  deploy:
-    needs: lint-and-build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Debug Artifact
-        run: echo "Listing available artifacts"; ls -la
-
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
+        with:
+          path: build
