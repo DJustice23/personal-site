@@ -33,10 +33,14 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
+      - name: Debug - show what's in build
+        run: ls -la build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
+          name: justice-react-build
 
       - name: Deploy to GitHub Pages
         id: deployment
