@@ -7,7 +7,6 @@ const config = {
     '^.+\\.md$': 'markdown-to-jsx', // Map Markdown imports to markdown-to-jsx
   },
   testEnvironment: 'jsdom', // Use jsdom for DOM-related tests
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'], // Setup file for additional mocks and configurations
 };
 
 module.exports = config;
