@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import Main from '../layouts/Main';
 
 const LinkRenderer = ({ href, children }) => <Link to={href}>{children}</Link>;
+
+LinkRenderer.propTypes = {
+  href: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 const About = () => {
   const [markdown, setMarkdown] = useState('');

@@ -16,10 +16,6 @@ import Projects from '../pages/Projects';
 import Resume from '../pages/Resume';
 import Stats from '../pages/Stats';
 
-jest.mock('react-markdown', () => (props) => (
-  <div data-testid="mock-react-markdown">{props.children}</div>
-));
-
 const pages = [
   {
     route: '/',
