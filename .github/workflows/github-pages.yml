@@ -28,7 +28,7 @@ jobs:
 
       - name: Build and Deploy
         run: |
-          npm run build
+          npm run predeploy
           npm run deploy
         env:
           NODE_ENV: production
