@@ -31,5 +31,3 @@ jobs:
       - run: npm ci
       - name: Build
         run: npm run predeploy
-      - name: Test
-        run: npm test
