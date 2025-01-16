@@ -1,6 +1,6 @@
-import React from "react";
-import { createRoot, hydrateRoot } from "react-dom/client";
-import App from "./App";
+import React from 'react';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import App from './App';
 
 const StrictApp = () => (
   <React.StrictMode>
@@ -8,7 +8,7 @@ const StrictApp = () => (
   </React.StrictMode>
 );
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 
 // If the server (or react-snap) has already pre-rendered content in #root,
 // we "hydrate" that content. Otherwise, we do a normal "render".

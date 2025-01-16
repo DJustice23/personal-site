@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import Main from "../layouts/Main";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import Main from '../layouts/Main';
 
 const LinkRenderer = ({ ...children }) => {
   <Link {...children} />;
 };
 
 const About = () => {
-  const [markdown, setMarkdown] = useState("");
+  const [markdown, setMarkdown] = useState('');
   const [wordCount, setWordCount] = useState(0);
 
   useEffect(() => {
-    fetch("/data/about.md")
+    fetch('/data/about.md')
       .then((res) => res.text())
       .then((text) => {
         setMarkdown(text);
 
         const count = text
           .split(/\s+/)
-          .map((s) => s.replace(/\W/g, ""))
+          .map((s) => s.replace(/\W/g, ''))
           .filter((s) => s.length).length;
         setWordCount(count);
       })
-      .catch((err) => console.error("Error fetching about.md:", err));
+      .catch((err) => console.error('Error fetching about.md:', err));
   }, []);
 
   return (

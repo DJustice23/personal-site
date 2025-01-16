@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 
 // Validates the first half of an email address.
 const validateText = (text) => {
@@ -9,21 +9,21 @@ const validateText = (text) => {
 };
 
 const messages = [
-  "hi",
-  "hello",
-  "hola",
-  "you-can-email-me-at-literally-anything! Really",
-  "well, not anything. But most things",
-  "like-this",
-  "or-this",
-  "but not this :(  ",
-  "you.can.also.email.me.with.specific.topics.like",
-  "just-saying-hi",
-  "please-work-for-us",
-  "help",
-  "admin",
-  "or-I-really-like-your-website",
-  "thanks",
+  'hi',
+  'hello',
+  'hola',
+  'you-can-email-me-at-literally-anything! Really',
+  'well, not anything. But most things',
+  'like-this',
+  'or-this',
+  'but not this :(  ',
+  'you.can.also.email.me.with.specific.topics.like',
+  'just-saying-hi',
+  'please-work-for-us',
+  'help',
+  'admin',
+  'or-I-really-like-your-website',
+  'thanks',
 ];
 
 const useInterval = (callback, delay) => {
@@ -69,13 +69,13 @@ const EmailLink = () => {
         updateChar(newChar + 1);
       }
     },
-    isActive ? delay : null,
+    isActive ? delay : null
   );
 
   return (
     <div
       className="inline-container"
-      style={validateText(message) ? {} : { color: "red" }}
+      style={validateText(message) ? {} : { color: 'red' }}
       onMouseEnter={() => setIsActive(false)}
       onMouseLeave={() => idx < messages.length && setIsActive(true)}
     >
@@ -83,7 +83,7 @@ const EmailLink = () => {
         href={
           validateText(message)
             ? `mailto:asu23justice+${message}@gmail.com`
-            : ""
+            : ''
         }
       >
         <span>asu23justice+</span>

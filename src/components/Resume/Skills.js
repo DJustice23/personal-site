@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import CategoryButton from "./Skills/CategoryButton";
-import SkillBar from "./Skills/SkillBar";
+import CategoryButton from './Skills/CategoryButton';
+import SkillBar from './Skills/SkillBar';
 
 class Skills extends Component {
   static initializeButtons(categories) {
@@ -11,7 +11,7 @@ class Skills extends Component {
         acc[category.name] = false;
         return acc;
       },
-      { All: true },
+      { All: true }
     );
   }
 
@@ -43,12 +43,12 @@ class Skills extends Component {
 
     // Find the active category
     const activeCategory =
-      Object.keys(buttons).find((key) => buttons[key]) || "All";
+      Object.keys(buttons).find((key) => buttons[key]) || 'All';
 
     return skills
       .filter(
         (skill) =>
-          activeCategory === "All" || skill.category.includes(activeCategory),
+          activeCategory === 'All' || skill.category.includes(activeCategory)
       )
       .sort((a, b) => {
         if (a.competency !== b.competency) return b.competency - a.competency;
@@ -97,13 +97,13 @@ Skills.propTypes = {
       title: PropTypes.string.isRequired,
       competency: PropTypes.number.isRequired,
       category: PropTypes.arrayOf(PropTypes.string).isRequired,
-    }),
+    })
   ).isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       color: PropTypes.string,
-    }),
+    })
   ).isRequired,
 };
 

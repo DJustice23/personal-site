@@ -17,7 +17,9 @@
     "start": "react-scripts start",
     "lint": "eslint $(git ls-files '*.js')",
     "test": "react-scripts test --watchAll=false",
-    "analyze": "npm run build && source-map-explorer build/static/js/*.chunk.js"
+    "analyze": "npm run build && source-map-explorer build/static/js/*.chunk.js",
+    "format": "prettier --write .",
+    "fix": "eslint . --ext .js,.jsx --fix && prettier --write ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -52,6 +54,7 @@
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-prettier": "^5.2.2",
     "eslint-plugin-react": "^7.37.4",
+    "prettier": "^3.4.2",
     "sass": "^1.83.4",
     "source-map-explorer": "^2.5.3"
   },

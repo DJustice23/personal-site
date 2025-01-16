@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import ContactIcons from "../Contact/ContactIcons";
+import ContactIcons from '../Contact/ContactIcons';
 
 const { PUBLIC_URL } = process.env; // set automatically from package.json:homepage
 
@@ -23,7 +23,7 @@ const SideBar = () => (
       <h2>About</h2>
       <p>
         Hi there, I&apos;m David. Most folks just call me Justice. I like
-        learning and experiencing new things. I&apos;m an{" "}
+        learning and experiencing new things. I&apos;m an{' '}
         <a href="https://www.appstate.edu/">App State</a> graduate, self-taught
         coder, and enthusiastic adventurer, among many other things. Currently
         traveling around the USA and living and working out of a camper named
@@ -31,7 +31,7 @@ const SideBar = () => (
       </p>
       <ul className="actions">
         <li>
-          {!window.location.pathname.includes("/resume") ? (
+          {!window.location.pathname.includes('/resume') ? (
             <Link to="/resume" className="button">
               Learn More
             </Link>

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const SkillBar = ({ data, categories }) => {
   const { category, competency, title } = data;
@@ -37,7 +37,7 @@ SkillBar.propTypes = {
     PropTypes.shape({
       name: PropTypes.string,
       color: PropTypes.string,
-    }),
+    })
   ),
 };
 
