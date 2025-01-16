@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import Main from '../layouts/Main';
 
-const LinkRenderer = ({ ...children }) => {
-  <Link {...children} />;
-};
+const LinkRenderer = ({ href, children }) => <Link to={href}>{children}</Link>;
 
 const About = () => {
   const [markdown, setMarkdown] = useState('');
   const [wordCount, setWordCount] = useState(0);
 
   useEffect(() => {
-    fetch('/data/about.md')
-      .then((res) => res.text())
-      .then((text) => {
+    const fetchMarkdown = async () => {
+      try {
+        const res = await fetch('/data/about.md');
+        const text = await res.text();
         setMarkdown(text);
 
         const count = text
@@ -22,8 +21,13 @@ const About = () => {
           .map((s) => s.replace(/\W/g, ''))
           .filter((s) => s.length).length;
         setWordCount(count);
-      })
-      .catch((err) => console.error('Error fetching about.md:', err));
+      } catch (err) {
+        console.error('Error fetching about.md:', err);
+        setMarkdown('# Error loading content');
+      }
+    };
+
+    fetchMarkdown();
   }, []);
 
   return (
