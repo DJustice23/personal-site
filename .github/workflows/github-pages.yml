@@ -48,5 +48,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug Artifact
+        run: echo "Listing available artifacts"; ls -la
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
