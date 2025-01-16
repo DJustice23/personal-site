@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  lint-and-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,17 +27,26 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build
+      - name: Lint Code
+        run: npm run lint
+
+      - name: Build Project
         run: npm run predeploy
         env:
           NODE_ENV: production
 
-      # Upload the built `build` directory as an artifact
+      - name: Debug Build Output
+        run: ls -la build
+
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
 
-      # Deploy to GitHub Pages
+  deploy:
+    needs: lint-and-build
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
