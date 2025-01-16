@@ -7,7 +7,7 @@ const config = {
     '^.+\\.jsx?$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(react-markdown|comma-separated-tokens|hast-util-to-jsx-runtime)/)',
+    '/node_modules/(?!(react-markdown|comma-separated-tokens|hast-util-to-jsx-runtime|vfile|unist-util-.+|micromark.+|devlop)/)',
   ],
 };
 
