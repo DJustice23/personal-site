@@ -20,7 +20,7 @@ jobs:
           node-version: '20.x'
           cache: 'npm'
 
-      - name: Install Puppeteer Dependencies
+      - name: Install Chromium Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -30,7 +30,11 @@ jobs:
             libcups2 \
             libxkbcommon-x11-0 \
             libpangocairo-1.0-0 \
-            libgdk-pixbuf2.0-0
+            libgdk-pixbuf2.0-0 \
+            libasound2 \
+            libnspr4 \
+            fonts-liberation \
+            xdg-utils
 
       - name: Install Dependencies
         run: npm ci
