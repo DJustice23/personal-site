@@ -20,28 +20,25 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          # or "node-version-file: .nvmrc" if you have one
           cache: npm
 
       - name: Install
         run: npm ci
 
       - name: Build
-        run: npm run build # or npm run predeploy
+        run: npm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v3
-
       - name: Debug - show build folder
         run: ls -la
 
       - name: Debug - show what's in ./build
         run: ls -la ./build
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: ./build
 
       - name: Deploy to GitHub Pages
         id: deployment
