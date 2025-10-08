@@ -16,6 +16,19 @@ import Projects from '../pages/Projects';
 import Resume from '../pages/Resume';
 import Stats from '../pages/Stats';
 
+beforeAll(() => {
+  global.fetch = jest.fn(async () => ({
+    json: async () => ({}),
+  }));
+});
+
+afterAll(() => {
+  if (global.fetch && 'mockClear' in global.fetch) {
+    global.fetch.mockClear();
+  }
+  delete global.fetch;
+});
+
 const pages = [
   {
     route: '/',
