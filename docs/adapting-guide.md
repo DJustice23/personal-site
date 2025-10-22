@@ -1,20 +1,20 @@
 # Adapting this Website
 
-Many people have contacted me about adapting this website. I have tried to make things as simple as possible. There are still bugs. I am sorry. If you find a bug, please email me (help@mldangelo.com), submit a pull request (I'll buy you a coffee as a thank you), or submit an issue.
+This guide collects tips for tailoring the project to your own information. If you notice gaps or have suggestions, please open an issue or pull request so the documentation can continue to improve.
 
-You may wish to fork this repository or remove my remote origin and add your own. Go [here](https://help.github.com/articles/changing-a-remote-s-url/) for more information on how to change remotes.
+When you start customizing the site, you may want to fork the repository or update the remote URL to point at your own origin. GitHub’s documentation on [changing a remote URL](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories) is a good reference.
 
 ## Before you start
 
-1. Make sure you have a good text editor. I recommend [Visual Studio Code](https://code.visualstudio.com/).
+1. Make sure you have a good text editor such as [Visual Studio Code](https://code.visualstudio.com/).
 1. Review `src/App.js`. This file contains all of our route definitions. If you wish to add or remove a page, you should do so here.
 
 ## Checklist
 
 ### Setup
 
-1. Run the project before making any modifications by following the set up and running instructions in the main [README.md](https://github.com/mldangelo/personal-site#set-up).
-1. Change `homepage` in `package.json` to reflect where you plan to host the site. This is important for static exporting via react-snap. This also changes your path when developing locally. For example, a homepage of `mldangelo.com` places the site at `localhost:3000` and a homepage of `https://mldangelo.github.io/personal-site/` places the site at `localhost:3000/personal-site/`. If you plan to host at on a path such as `https://[your-github-username].github.io/[your-repo-name]`, you should set this now so that your development environment mirrors your production environment.
+1. Run the project before making any modifications by following the set up and running instructions in the main [README.md](../README.md#set-up).
+1. Change `homepage` in `package.json` to reflect where you plan to host the site. This value controls the base path for static builds and GitHub Pages. For example, a homepage of `https://example.com` places the site at `localhost:3000` and a homepage of `https://username.github.io/personal-site/` places the site at `localhost:3000/personal-site/`. If you plan to host at on a path such as `https://[your-github-username].github.io/[your-repo-name]`, set this now so your development environment mirrors production.
 1. Create a `.env` file. To do this, run:
 
    ```bash
@@ -25,19 +25,19 @@ You may wish to fork this repository or remove my remote origin and add your own
 
 ### Adapt Content
 
-I recommend keeping the project running as you go (with `npm start`) to help correct mistakes quickly.
+Keep the project running as you go (with `npm start`) to help correct mistakes quickly.
 
 1. Start by changing text in the sidebar. This file is located at `src/components/Template/SideBar.js`.
 1. Add an image of yourself in `public/images/me.jpg`. Your image should be approximately 256 x 256 pixels. Larger and smaller is ok, but avoid very large images to save bandwidth. If you need help resizing your image, Adobe makes a great online tool [here](https://www.adobe.com/photoshop/online/resize-image.html).
 1. Modify the text on the homepage. This file is located at `src/pages/Index.js`.
 1. Modify the files in `src/data/resume/` next.
 1. Modify all of the other files in the `src/data/` directory.
-1. You've finished modifying >95% of the pages. Search through the rest of the files for references to `Michael` or `Angelo` and change values to your name.
+1. You've finished modifying >95% of the pages. Search through the rest of the files for any placeholder content (names, links, or data that does not apply to you) and replace it with your own details.
 1. Change or remove the favicon in `public/index.html`. [This](https://realfavicongenerator.net/) website may be helpful.
 
 ### Deploy
 
-See deployment instructions [here](https://github.com/mldangelo/personal-site#deploying-to-github-pages). If you plan to use a custom url, modify `public/CNAME` and enter your URL. You can run:
+See deployment instructions [here](../README.md#deploying-to-github-pages). If you plan to use a custom url, modify `public/CNAME` and enter your URL. You can run:
 
 ```bash
 echo "[your-custom-domain][.com]" > public/CNAME
@@ -45,7 +45,7 @@ echo "[your-custom-domain][.com]" > public/CNAME
 
 as a shortcut.
 
-I recommend purchasing your own domain name from [Google Domains](https://domains.google). If you would like to host on github pages, run `npm run deploy`. This generates a new branch called `gh-pages`. Then go to `https://github.com/[your-github-username]/[your-repo-name]/settings` and configure accordingly:
+Consider purchasing your own domain name from a registrar you trust. If you would like to host on GitHub Pages, run `npm run deploy`. This generates a new branch called `gh-pages`. Then go to `https://github.com/[your-github-username]/[your-repo-name]/settings` and configure accordingly:
 
 <center><img src="images/gh-pages.png"></center>
 
@@ -55,19 +55,19 @@ That's it. Thank you for reading. If you go through this guide and run into issu
 
 ## Common Pitfalls
 
-Here are answers to questions I've been asked at least twice. I've attempted to simplify development and improve documentation throughout the project to address them. This section is updated frequently.
+Here are answers to questions that come up often. The documentation is updated periodically as new issues surface.
 
 1. My CSS isn't rendering, or I see a 404 instead of my site:
 
-   Make sure the `homepage` field of `package.json` points to where you plan to host your site index. Also, double check that you created a `CNAME` file (see deployment instructions above). If neither of these work, please open an issue or send me an [email](mailto:help@mldangelo.com).
+   Make sure the `homepage` field of `package.json` points to where you plan to host your site index. Also, double check that you created a `CNAME` file (see deployment instructions above). If neither of these work, please open an issue so the problem can be tracked.
 
 2. LF / CRLF issues with eslint.
 
-   This is a common Windows development pitfall. See @[FrozenFury](https://github.com/FrozenFury)'s [comment](https://github.com/mldangelo/personal-site/issues/263#issuecomment-759216299) for how to update your eslint config to resolve this issue.
+   This is a common Windows development pitfall. Configure your editor to use `LF` for this project or add `"endOfLine": "auto"` to the relevant eslint/prettier settings to align with your local environment.
 
 3. master / main
 
-   Github decided to rename the default branch of all of their repositories from master to main, and so did I. See their reasoning [here](https://github.com/github/renaming). If you're trying to pull in recent changes, consider renaming your own branch, or just create a merge commit from my main.
+   Github decided to rename the default branch of all of their repositories from master to main. See their reasoning [here](https://github.com/github/renaming). If you're trying to pull in recent changes, consider renaming your own branch, or just create a merge commit from main.
 
 4. Google Analytics Warnings when exporting.
 
@@ -75,7 +75,7 @@ Here are answers to questions I've been asked at least twice. I've attempted to 
 
 5. How do I configure git? What is nano?
 
-   Read through [git-scm](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)'s excellent documentation. I recommend setting your default text editor to something you're comfortable with.I like to use vim for writing commit messages.
+   Read through [git-scm](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)'s excellent documentation. Set your default text editor to something you're comfortable with—for example, many developers use VS Code or vim for writing commit messages.
 
 6. Can I host at [username.github.io]?
 
@@ -83,7 +83,7 @@ Here are answers to questions I've been asked at least twice. I've attempted to 
 
 7. How do I disable eslint?
 
-   `echo "*\n" > .eslintignore` Although I really don't recommend it. Linters are good. They help prevent errors, enforce uniform style so that you can spend less time thinking about formatting and more time reading code, and eliminate easy nits for code reviews. If the rules aren't working for you, you should change them. See eslint's documentation [here](https://eslint.org/docs/about/) for more information.
+   `echo "*\n" > .eslintignore` Although this is generally not recommended. Linters help prevent errors, enforce uniform style so that you can spend less time thinking about formatting and more time reading code, and eliminate easy nits for code reviews. If the rules aren't working for you, change them instead. See eslint's documentation [here](https://eslint.org/docs/about/) for more information.
 
 8. Why is my website rendering the readme file?
 

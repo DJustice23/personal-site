@@ -1,6 +1,6 @@
 # How to Contribute
 
-Contributions are encouraged. Please feel free to get in touch (I will happily pair program with you), take a look at the [roadmap](./roadmap.md), or open a PR.
+Contributions are encouraged. Please review the [roadmap](./roadmap.md) and open an issue or pull request when you have something to share.
 
 ## Guidelines
 

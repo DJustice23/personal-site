@@ -1,6 +1,6 @@
 # Roadmap
 
-This site has been a work in progress since 2014. I have tried to make updates to reflect a) my knowledge of web development and b) current best practices. It will continue to evolve a as a WIP guided by the following design goals.
+This site continues to evolve alongside current best practices. Planned work is guided by the design goals documented in this repository.
 
 ## Future Direction
 

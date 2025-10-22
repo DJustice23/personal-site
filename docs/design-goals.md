@@ -43,7 +43,7 @@ This projects attempts to follow these design principles. Feedback and discussio
    - Limited external dependencies (ie no missing headers for external libraries).
    - Dependencies are kept up to date (currently uses dependabot).
 1. Good tests.
-1. Stable API - This project has been forked > 100 times. It should be easy for those forks adopt changes in main.
+1. Stable API - Feature work should avoid breaking existing pages or data contracts so downstream customizations remain easy to maintain.
 
 ## References
 
