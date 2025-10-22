@@ -10,7 +10,7 @@ const StrictApp = () => (
 
 const rootElement = document.getElementById('root');
 
-// If the server (or react-snap) has already pre-rendered content in #root,
+// If the server or a static pre-render has already populated #root,
 // we "hydrate" that content. Otherwise, we do a normal "render".
 if (rootElement.hasChildNodes()) {
   hydrateRoot(rootElement, <StrictApp />);
